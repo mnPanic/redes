@@ -447,7 +447,68 @@ Como puedo transformar los simbolos que me vienen en secuencias de bits
 para que ese codigo sea lo mas eficiente posible? Todo ese mundo es el de la
 **codificacion**.
 
-{{queda para la clase que viene}}
+Es un proceso que establece una correspondencia entre los simbolos de una fuente
+y los de un alfabeto (el cual tengo que inventarme). Con este puedo lograr una
+representacion *eficiente* (sacar la redundancia de la fuente) de la
+informacion.
+
+> Este tema es motivo de ejercicios de la práctica más tarde
+> Es un mundo, hay libros enteros solo de codificación
+
+
+Condiciones:
+
+{eran 3, copiar}
+
+- Condicion de los prefijos: Condicion necesaria y sufuciente para que un codigo
+  sesa instantaneo, que sus palabras cumplan con la condicion de los prefijos.
+  Una vez que un receptor lee una palabra, una vez que identifica un simbolo
+  compuesto por cierta cantidad de bits, que no haya ninguna duda que termino,
+  nes que es prefijo de una mas largo.
+
+  No existe palabra que sea prefijo de otra de longitud mayor.
+
+- Codigos **eficientes**
+
+  > El ancho de banda fisico limita la capacidad en bits x s que puedo usar en
+  >canal, y es algo finito. Si tengo un recurso escaso y finito y del otro lado
+  >una fuente que demanda mandar sus simbolos, tengo que armar codigos lo mas
+  >eficiente posibles para que no demande demas
+
+  Intuitiva: asignarle palabras de un codigo lo mas corta posible a los simbolos
+  que sean mas probables (por eso le quiero asignar las long mas cortas).
+
+  - $L_i$: palabra que codifica al simbolo
+  - $p_i$: Proba de aparicion de $m_i$
+  - $r$: # simbolos diferentes del alfabeto del codigo.
+
+  La longitud media de un codigo es $L = \sum p_i L_i$
+
+  La cantidad promedio maxima de info = log r
+
+  - L * log r >= H(S): Es lo que quiero cumplir para que sea una buena
+    codificacion. Si no cumplo esa condicion voy a tener perdida de informacion.
+
+    Es una condicion de diseño para mi codigo, pero no hace que sea eficiente
+    (podria asignar palabras grandes)
+    - Con la fuente binaria log r = 1
+
+  - Eficiencia del codigo: Cuando hay un match maximo entre el codigo y la
+    fuente, cuando h = H(s) / (L log r)
+
+- Codificador optimo
+
+  Es optimo porque estas igualando a la entropia de la fuente
+
+  H(X) ...
+
+  El codificador optimo para ese mensaje usa el menor numero de bits. Es como
+  zippear lo maximo posible (dicho rapido y no elegante.)
+
+##### Codificacion de huffman
+
+Hay heuristicas y tecnicas para obtener codigos instantaneos eficientes. Ejemplo
+de "Mi mama me mima" en las diapos.
 
 ### Medios de transmision reales
 
@@ -524,3 +585,31 @@ Observaciones de shannon: (capacidad de shannon)
   teorico de shannon.
 
 {Aca hay un resumen final que falta copiar}
+
+Interpretacion grafica:
+
+![](img/SNR.png)
+
+Eje y: eficiencia de ancho de banda. Rb: taza de bits.
+
+En la parte gris hay demasiados errores
+
+Quiero llevar la probabilidad tan baja como quiera agregando redundancia.
+
+> Si quiero mandar a y b, codifico con 1 y 0, si se me flippea un bit cague,
+> pero por ej. si codifico con 50 0s y 50 1s, agregue un monton de redundancia
+> pero es muy baja la probabilidad de que de error en los 50.
+
+Hay una curva asintotica, el limite de shanon. Voy a poder aumentar mi señal
+todo lo que quiera en el eje horizontal, y tambien puedo aumentar el bandwidth
+todo lo que quiera (y hacia abajo). Pero llegando a un límite cada nuevo Hz que
+agrego se torna inútil, no me sirve la ganancia que obtengo.
+
+### Pateado
+
+De la siguiente clase, ver despues a donde va
+
+![](img/marco-ref.png)
+
+Los channel encoders y modulacion son los temas de la clase 2, que son para
+meter informacion adentro de los canales.
