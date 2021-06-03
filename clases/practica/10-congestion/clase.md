@@ -187,3 +187,5 @@ Asumimos que los ACKs se aplican en el mismo RTT, pero la CWND se impacta en el
 siguiente.
 
 Abuso: tomamos como que un RTT llegan todos los ACKs de la rafaga de segmentos. 
+
+> Hay que leer si o si el RFC para resolver los ejercicios - Esteban.
