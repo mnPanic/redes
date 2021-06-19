@@ -194,7 +194,7 @@ bases de la teoria de la comunicacion, lo cual pasa en muy pocos casos):
 
 Algo inevitable es el ruido, puedo tratar de combatirlo de muchas maneras muy
 inteligentes pero **jamas** eliminarlo, por cuestiones termodinámicas de la
-física, no se pueden hacer transmisiones carenters de ruidos.
+física, no se pueden hacer transmisiones carentes de ruidos.
 
 Complicandola un poco con observadores que pueden tomar, deducir informacion y
 que puedan potencialmente enviar correcciones a un dispoisitivo nuevo.
@@ -212,42 +212,49 @@ se usan para contrarrestar los efectos del ruido.
 
 Las señales evolucionan en el tiempo. Categorizacion:
 
-![](signal.png)
+![](img/signal.png)
 
-- Analogicas: Pueden tomar valores infintos
-- Digitales: Los valores pueden ser 2, 0 o 1. Se supone que su frecuencia es
-  limitada, no puede haber infinita cantidad de cambios de 0 a 1 o de 1 a 0 si
-  tomo un intervalo finito. (Una suposicion implicita)
+- **Analogicas**: Pueden tomar infintos valores
+- **Digitales**: Los valores pueden ser dos: 0 o 1. Se supone que su frecuencia
+  es limitada, no puede haber infinita cantidad de cambios de 0 a 1 o de 1 a 0
+  si tomo un intervalo finito. (Una suposicion implicita)
 
 Fundamentos:
 
 - Se transportan como ondas electromagneticas: son dos campos ortogonales, uno
   electrico y otro magnetico (por ej la luz, o la antena de un router, o un
   celular)
-- Se propagan con una velocidad finita como un auto a una velocidad v.
-  Tipicamente se expresa como una parte de la velocidad de la luz.
 
-> Los cables UTP tipicos son de un medio fisico de cobre, donde el **frente de
-> onda** es practicamente el 70% de la velocidad de la luz.
+- En el vacío se propagan a la velocidad de la luz.
+
+- Se propagan con una velocidad finita como un auto a una velocidad v.
+  Tipicamente se expresa como un factor de la velocidad de la luz.
+
+  > Los cables UTP tipicos son de un medio fisico de cobre, donde el **frente de
+  > onda** es practicamente el 70% de la velocidad de la luz.
 
 ### Ondas
 
-Las ondas electromagneticas vibran con un comportamiento periodico. Este periodo
+Las **ondas electromagneticas** vibran con un comportamiento periodico. Este periodo
 (o lapso de repeticion) es lo que se denomina *longitud de onda*. Es algo que se
 mide en metros. Formula:
 
-$$ \lambda = c / f$$
+$$ \lambda \text{ [metros]} = \frac{c \text{ [metros/seg]}}{f \text{ [veces/seg]}}$$
 
 Tiene una medida y se desplaza a una velocidad, pero no las podemos ver.
 
-La vida es una porqueria para una onda
+**Problema**: Una onda en caso de chocar con imperfecciones del material produce
+reflexiones y refracciones. Esto produce **pérdidas** (menos energía para mi
+señal original en donde viaja el mensaje). Si el medio tiene muchas pérdidas,
+la señal original se puede atenuar considerablemente.
+> La vida es una porqueria para una onda
 
 ### Funciones periodicas
 
 Como todo se transmite por ondas, tenemos que estudiar sus conceptos basicos
 para ver como lidiar cuando pasan estas cosas
 
-Una funcion periodica cumple que para todo t vale f(t) = f(t + T). Donde T es el
+Una funcion periodica cumple que para todo t vale $f(t) = f(t + T)$. Donde $T$ es el
 **periodo fundamental** (o periodo) de la funcion.
 
 ![](img/periodica.png)
@@ -356,7 +363,7 @@ Esto da una intuicion de por que transmitir ondas cuadradas no es una buena
 idea, excepto para distancias muy cortitas donde hay atenuaciones muy bajas. En
 telecomuniaciones, la mayor parte es mediante manipulación de ondas senoidales.
 
-### Teoría de la información
+## Teoría de la información
 
 Como usar los conceptos que aprendimos para transmitir bits. Estamos ubicados en
 la capa fisica, ya que estamos lidiando con las propiedades fisicas de las ondas
@@ -395,6 +402,8 @@ Intuitivamente,
 - Si la proba es 0, algo muy poco probable, la info que trae es enorme
 - Si la proba es 1, ya se que va a suceder, no me trae informacion.
 
+![](img/log.png)
+
 1 bit a partir de ahora la informacion de observar que sale cara o seca en una
 moneda. Observar un 0 o un 1 en una fuente generadora de mensajes donde ambos
 simbolos son equiprobables.
@@ -404,7 +413,7 @@ uno tiene una probabilidad. La proba de observar el proximo simbolo no tiene
 relacion con el pasado de la historia de los simbolos que emitio, por eso se
 llama de *memoria nula*.
 
-#### Entropia
+### Entropia
 
 {{diapo 61}}: suma de probabilidades, definicion de la *esperanza*. Toda la
 fuente la puedo caracterizar por la cantidad promedio de informacion, su
@@ -412,16 +421,17 @@ esperanza. Esta suma se conoce como la **entropia** (H(S)) de la fuente S. La
 entropia es de la fuente, compuesta por un alfabeto de simbolos cada uno con su
 probabilida de aparicion. Interpretaciones intuitivas de entropia:
 
-- El valor medio ponderado (promedio) de la cantidad de informacion del conjunto
+- El **valor medio ponderado** (promedio) de la cantidad de informacion del
+  conjunto
   de mensajes posibles.
 
-- Medida de incertidumbre (grado de incerteza) acerca de una variable aleatoria.
+- Medida de **incertidumbre promedio** (grado de incerteza) acerca de una variable aleatoria.
   Una entropia alta habla de que en promedio voy a tener mucha informacion, cada
   vez que observo el evento voy a ganar mucho, porque era inesperado lo que
   observe.
 
 - Cantidad de informacion obtenida al observar la aparicion de cada nuevo
-  simbolo. No puedo observar uno solo, tengo un alfabeto. COn una fuente con una
+  simbolo. No puedo observar uno solo, tengo un alfabeto. Con una fuente con una
   entropia mas alta dice cosas mas "sorprendentes" y "novedosas".
 
 Ejemplo: Entropia de una fuente binaria
@@ -433,14 +443,13 @@ la misma probabilidad.
 
 Propiedades
 
-{{mas en diapo 64}}
-
 - Es no negativa y se anula sii un estado de la variable es 1 y el resto 0. No
   trae informacion (porque es log(1) = 0)
-- La entropia es maxima (mayor incertidumbre del mensaje)
-- Una mas
+- La entropia es maxima (mayor incertidumbre del mensaje) cuando todos los
+  valores posibles de la variable s son equiprobables
+- Si hay n estados equiprobables, $p_i = 1/n$ y se cumple que $H(S) = log_2(n)$
 
-#### Codificacion
+### Codificacion
 
 Como puedo transformar los simbolos que me vienen en secuencias de bits
 (palabras o codigo), por ej. una a con un 0, e 010, f 100 y asi. Que puedo hacer
@@ -458,15 +467,18 @@ informacion.
 
 Condiciones:
 
-{eran 3, copiar}
+- Bloque
+- Singular
+- Separable (univocamente decodificable)
 
-- Condicion de los prefijos: Condicion necesaria y sufuciente para que un codigo
-  sesa instantaneo, que sus palabras cumplan con la condicion de los prefijos.
+Y
+
+- Condicion de los prefijos: Condicion **necesaria y sufuciente** para que un
+  codigo sea **instantaneo**, que sus palabras cumplan con la condicion de los
+  prefijos: no existe palabra que sea prefijo de otra palabra de longitud mayor.
   Una vez que un receptor lee una palabra, una vez que identifica un simbolo
   compuesto por cierta cantidad de bits, que no haya ninguna duda que termino,
-  nes que es prefijo de una mas largo.
-
-  No existe palabra que sea prefijo de otra de longitud mayor.
+  no es que es prefijo de una mas largo.
 
 - Codigos **eficientes**
 
@@ -475,7 +487,7 @@ Condiciones:
   >una fuente que demanda mandar sus simbolos, tengo que armar codigos lo mas
   >eficiente posibles para que no demande demas
 
-  Intuitiva: asignarle palabras de un codigo lo mas corta posible a los simbolos
+  Intuitiva: asignarle palabras de un codigo lo mas cortas posible a los simbolos
   que sean mas probables (por eso le quiero asignar las long mas cortas).
 
   - $L_i$: palabra que codifica al simbolo
@@ -500,17 +512,22 @@ Condiciones:
 
   Es optimo porque estas igualando a la entropia de la fuente
 
-  H(X) ...
+  $$H(X) = \sum p(x_i) \times log_2(1\ p(x_i))$$
 
   El codificador optimo para ese mensaje usa el menor numero de bits. Es como
   zippear lo maximo posible (dicho rapido y no elegante.)
 
-##### Codificacion de huffman
+  > El codificador óptimo usa una cantidad de bits igual a la información de
+  > cada símbolo
+
+#### Codificacion de huffman
 
 Hay heuristicas y tecnicas para obtener codigos instantaneos eficientes. Ejemplo
 de "Mi mama me mima" en las diapos.
 
-### Medios de transmision reales
+![](img/huffman.png)
+
+## Medios de transmision reales
 
 Tengo una fuente que emite simbolos, el asigno bits. Cada simbolo tiene una
 proba asociada y asi la fuente una entropia. Quiero poner esos bits en un canal,
@@ -535,15 +552,24 @@ Tipicamente se muestrean las señales cada periodos regulares de tiempo, y hay
 que definir que es un 1 y que es un 0, por arriba y abajo de que. Viendo eso en
 cada instante da un muestreo.
 
-Esto genera una taza de ruido, el **bit error rate** (BER), cuantos de estos
-errores hay por unidad de tiempo.
+### Capacidad del canal
 
-- Velocidad de transmision de datos C en bits por segundo
-- Ancho de banda B (bandwidth) en ciclos por segundo (hertz). Limitados por el
+Conceptos:
+
+- Velocidad de transmision de datos $C$ en bits por segundo
+- Ancho de banda $B$ (bandwidth) en ciclos por segundo (hertz). Limitados por el
   transmisor y el medio
-- Ruido (N) por Noise
+- Ruido $N$ por Noise
+- **bit error rate** (BER), cuantos de estos errores (cambiar 0 por 1 o
+  viceversa) hay por unidad de tiempo.
 
-Observaciones de shannon: (capacidad de shannon)
+#### Ancho de banda de Nyquist
+
+Es la capacidad teórica máxima **sin ruido**.
+
+{mas en las diapos}
+
+#### Capacidad de Shannon
 
 - Para un cierto nivel de ruido, a mayor velocidad C
 
@@ -553,7 +579,8 @@ Observaciones de shannon: (capacidad de shannon)
 
 - Es importante estudiar la relacion señal a ruido (Signal-Noise ratio, SNR)
 
-  {{formula diapo 86}}
+  $$SNR_{dB} = 10log_{10}(SNR) = 10log_{10}\frac{\text{Potencia
+  señal}}{\text{Potencia ruido}}$$
 
 - Si aumento B (en principio beneficioso porque pueden pasar mas señales), la
   potencide la señal S (se ve menos afectada por la atenuacion), aumenta la
@@ -571,20 +598,20 @@ Observaciones de shannon: (capacidad de shannon)
 
     La potencia es la amplitud.
 
-- Metiendo todo esto en un mismo problema, la **velocidad binaria teorica
-  maxima** para un canal cualquiera es (EL teorema de shannon para la capacidad
-  de un canal)
+Metiendo todo esto en un mismo problema, la **velocidad binaria teorica maxima**
+para un canal cualquiera es (EL teorema de shannon para la capacidad de un
+canal)
 
   $$C_{max}(bps) = B(Hz) \times log_2(1+ SNR)$$
 
-  Si me paso, no voy a poder recuperar los errores causados por el ruido. El
-  ruido va a ser inmanejable.
+Si me paso, no voy a poder recuperar los errores causados por el ruido. El
+ruido va a ser inmanejable.
 
-  Con mecanismos de redundancia y otros trucos se puede reducir la probabilidad
-  de que un bit de distinto tanto como yo quiera, excepto que me pase del limite
-  teorico de shannon.
+Con mecanismos de redundancia y otros trucos se puede reducir la probabilidad
+de que un bit de distinto tanto como yo quiera, excepto que me pase del limite
+teorico de shannon.
 
-{Aca hay un resumen final que falta copiar}
+![](img/comm-resumen.png)
 
 Interpretacion grafica:
 
@@ -604,12 +631,3 @@ Hay una curva asintotica, el limite de shanon. Voy a poder aumentar mi señal
 todo lo que quiera en el eje horizontal, y tambien puedo aumentar el bandwidth
 todo lo que quiera (y hacia abajo). Pero llegando a un límite cada nuevo Hz que
 agrego se torna inútil, no me sirve la ganancia que obtengo.
-
-### Pateado
-
-De la siguiente clase, ver despues a donde va
-
-![](img/marco-ref.png)
-
-Los channel encoders y modulacion son los temas de la clase 2, que son para
-meter informacion adentro de los canales.

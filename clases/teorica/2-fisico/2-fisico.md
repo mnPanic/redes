@@ -18,8 +18,8 @@ Agenda
 - Dominio de la freq
 - La red telefonica
 - Conversion analogico digital
-- Modulacion
-- Codificacion
+- Modulacion ("modulacion" digital / portadora analogica)
+- Codificacion ("codificacion" digital / portadora digital)
 - Capacidad de volumen de un canal
 
 Todo lo que circunda al trabajo con señales, etc. esta centrada al rededor de
@@ -100,7 +100,7 @@ día. Tienen sus raices en haberse montado originalmente en la red telefónica.
 
 PSTN (public siwtched telephone network): transmitir la voz humana de una forma
 mas o menos reconocible (el ancho de banda es limitado, queremos lograr nuestros
-objetivos con el menor consumo osible.)
+objetivos con el menor consumo posible.)
 
 Fue organizado en una jerarquia multinivel altamente redundante, con
 componentes. Jerarquica incremental.
@@ -121,7 +121,8 @@ Las rayitas que van creciendo denotan la capacidad agregada de bandwidth.
 ### Multiplexacion
 
 Se multiplexan varios canales de baja capcidad en otros de alta capcidad, y
-luego se demultiplexa.
+luego se demultiplexa. Por consideraciones económicas, se multiplexan varias
+conversaciones sobre un único troncal físico.
 
 ![](img/mux.png)
 
@@ -130,8 +131,8 @@ excelencia que manejamos en redes. Y se pueden llegar a combinar ambas.
 
 !! pregunta de final
 
-- FDM (Frequency division multiplexing): Subdividimos el espectro de frecuencia
-  en anchos de banda acotados, y cada uno es usado todo el tiempo
+- **FDM** (Frequency division multiplexing): Subdividimos el espectro de
+  frecuencia en anchos de banda acotados, y cada uno es usado todo el tiempo
 
   ![](img/fdm.png)
 
@@ -145,7 +146,7 @@ excelencia que manejamos en redes. Y se pueden llegar a combinar ambas.
   Requiere de mucho control para que los usuarios no se metan en las zonas que
   no fueron asignadas.
 
-- TDM (Time Division Multiplexing): Round robin por cada tiempo. Como un
+- **TDM** (Time Division Multiplexing): Round robin por cada tiempo. Como un
   scheduler preemptive
 
   Es mas facil porque hay alguien que te asigna
@@ -209,6 +210,10 @@ perder informacion. Esta es otra forma de multiplexacion mas.
 
 ## Conversion Analogico-Digital (CAD)
 
+> Es necesaria por ejemplo para telefonia, porque el local loop produce señales
+> analógicas y hay que transformarlas a digitales porque para ir a la end office
+> se combinan sobre los trunks.
+
 ![](img/ad.png)
 
 - Compu digital, pasamos a analogico mediante el modem
@@ -224,12 +229,12 @@ importar que esta haciendo el usuario (lo cual seria poco practico.)
 
 ### Teorema del muestreo
 
-Las seniales analogicas se dividen en multiples frecuencias.
+Las señales analogicas se dividen en multiples frecuencias.
 
 ![](img/fourier.png)
 
-Las seniales analogicas se pueden desarrollar con la serie de fourier. Cuando
-muestreamos, estamos recuperando info que vimos codificada en esas seniales. Hay
+Las señales analogicas se pueden desarrollar con la serie de fourier. Cuando
+muestreamos, estamos recuperando info que vimos codificada en ellas. Hay
 una señal que me viene emitida y yo tengo que muestrear o mirar a intervalos
 regulares en tiempo para recuperar la información.
 > Saco fotos y reconstruyo la pelicula
@@ -255,7 +260,7 @@ Ejemplos
   Eso es lo que escuchamos cuando hablamos por teléfono que la otra persona está
   en una lata.
 
-### Conversion CAD
+### CAD
 
 Dos etapas
 

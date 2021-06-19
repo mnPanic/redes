@@ -243,7 +243,7 @@ c. Ancho de banda maximo
 
   - Unir las dos inecuaciones
 
-## Deleay
+## Delay
 
 Lo vamos a definir de una manera ahora pero nos vamos a dar cuenta a lo largo de
 la materia de que es algo mas complicado y desafiante
@@ -261,14 +261,14 @@ propagacion por bit, sino que transmito todos los bits que quiero, y todos se
 propagan en cadena en el cable. Entonces el tiempo de propagacion se cuenta una
 sola vez.
 
-- T_tx(n) = n/V_tx (velocidad de transmision) es el tiempo de transmision de n
+- $T_{tx}(n) = n/V_{tx}$ (velocidad de transmision) es el tiempo de transmision de n
   bits. n son bits y V_tx son bits/seg, entonces termina quedando segundos.
 
-- T_prop = D/V_prop tiempo de propagacion, que no depende de la velocidad de
+- $T_{prop} = D/V_{prop}$ tiempo de propagacion, que no depende de la velocidad de
   transmision (no tiene que ver con la capacidad de canal). Depende del tiempo
   que tarda la señal en transmitirse, si es inalambrico, guiado, etc.
 
-- T_queue: Tiempo de encolamiento. No aplica en punto a punto pero si va a
+- $T_{queue}$: Tiempo de encolamiento. No aplica en punto a punto pero si va a
   aplicar mas adelante.
 
 Cuestion de terminologia: si transmitimos 1 bit en vez de un paquete de n bits,
