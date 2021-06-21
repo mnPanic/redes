@@ -62,8 +62,10 @@ conectividad a varias facultades.
 
 Pueden clasificarse en:
 
-- Ruteo interno (miran hacia adentro del SA). **intradominio**
-- Ruteo externo (miran hacia afuera): interdominio
+- Ruteo interno (miran hacia adentro del SA). **intradominio**, IGP (internal
+  gateway protocols)
+- Ruteo externo (miran hacia afuera): interdominio, EGP (external gateway
+  protocols)
 
 Pensamos en un grafo de sistemas autonomos. En internet existen varios "planos"
 de redes,
@@ -89,8 +91,8 @@ Con este criterio se pueden explicar muchas cosas mas, como
 
 Coexisten pero son diferentes
 
-- forwarding: proceso que selecciona una puerta de salida basada en la dir
-  destino y una tabla de ruteo.
+- forwarding: Re envio. Proceso que selecciona una puerta de salida basada en la
+  dir destino y una tabla de ruteo.
 
   Tengo que reenviar (hacer el trabajo de mirar lo que me viene y enviarlo hacia
   algun lugar) (o forwardear). Generalmente se usa como enrutar o rutear, pero
