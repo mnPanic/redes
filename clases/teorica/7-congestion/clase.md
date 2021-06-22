@@ -373,7 +373,9 @@ Active queue management (AQM). A veces se le llama AQM-RED
 Produce la notif implicita de la inminencia de la congestion, descarta el
 paquete (en tcp hay timeouts).
 
-Descarte aleatoriamente temprano {continuar}
+Descarte aleatoriamente temprano. En vez de esperar que se llene el buffer,
+descarta los paquetes con alguna proba de descarte cada vez que la cola excede
+algun nivel de llenado.
 
 ![](img/red-alg.png)
 
