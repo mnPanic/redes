@@ -21,17 +21,20 @@ pensar durante el desarrollo y no al final.
 
 ## Aspectos que atañan la seguridad
 
-- Confidencialidad: Que nadie en el medio del viaje del mensaje pueda leerlo.
+- **Confidencialidad**: Que nadie en el medio del viaje del mensaje pueda
+  leerlo.
 
-- Integridad: Que cuando mandes un mensaje llegue sin modificarse. Y también en
+- **Integridad**: Que cuando mandes un mensaje llegue sin modificarse. Y también
+  en
   el tiempo indicado.
 
-- Autenticacion:
+- **Autenticacion**:
 
   > Cuando uno quiere entrar a gmail, te pide poner tu mail y tu pw. En el
   > momento en el que estas poniendo tu pw, te estás autenticando.
 
-- No repudio: Es autenticación pero un poco más pesado en el lenguaje formal.
+- **No repudio**: Es autenticación pero un poco más pesado en el lenguaje
+  formal.
   Implica autenticación pero no al revés. Nadie puede negar que la persona que
   está haciendo esto fuiste vos.
 
@@ -160,9 +163,9 @@ Conceptos vistos hasta ahora
 > persona y no de otra. Empiezan a surgir problemas cuando trabajamos en inet
 > que no estan en alice y bob
 
-Los **certificados digitales** son relaciones validas entre claves publicas y
-cierta entidad (por ej. alice/bob). Una entidad certificante firma que la clave
-publica es de Alice.
+Los **certificados digitales** (X.509) son relaciones validas entre claves
+publicas y cierta entidad (por ej. alice/bob). Una entidad certificante firma
+que la clave publica es de Alice.
 
 > Por lo general Alice envia una prueba o se acerca personalmente a la autoridad
 > certificante, y le da la publica (por ej.) alice genera de antes su par
@@ -223,6 +226,8 @@ Caracteristicas:
 > vemos ahora.
 
 ### Handshake SSL
+
+![](img/ssl-handshake.png)
 
 - Se **negocian** los algoritmos
 - {mas texto}
@@ -373,7 +378,7 @@ Es mas practico aca definir que queremos dejar pasar y droppear el resto del
 tráfico.
 
 | /           | Red interna | servidor                                 | internet        |
-| ----------- | ----------- | ---------------------------------------- |
+| ----------- | ----------- | ---------------------------------------- | --------------- |
 | Red interna | ok          | proxy, correo (SMTP, POP3 y/o IMAP), DNS | drop            |
 | Servidor    | drop        | ok                                       | http, dns, SMTP |
 | Internet    | DROP        | SMTP, DNS                                | ok              |

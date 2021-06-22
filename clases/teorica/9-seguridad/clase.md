@@ -180,9 +180,9 @@ La *seguridad por desconocimiento* nunca funciona.
 
 La longitud define varias cosas, como el **factor de trabajo**, que nos dice el
 esfuerzo computacional requerido del criptoanalista para romper esa clave. Crece
-exponencialmente con el tamaño de la clase.
+exponencialmente con el tamaño de la clave.
 
-El secreto se logra con un algoritm orobusto y una clave suficientemente larga
+El secreto se logra con un algoritmo robusto y una clave suficientemente larga
 para que el **tiempo sea impráctico**. Esto es importante porque está cambiando
 todo el tiempo, ya que el tiempo depende de la capacidad de cómputo
 
@@ -190,7 +190,7 @@ Y cuanto es suficiente para el tamaño de clave?
 
 - 64 bits es un chiste
 - 128/256 bits uso comercial rutinario, pero el pentagono lo puede romper
-- >= 256 bits para sistemas criticos (como defensa militar).
+- \>= 256 bits para sistemas criticos (como defensa militar).
 
 ### One time pads
 
@@ -198,7 +198,7 @@ Rellenos de una sola vez. Idea propuesta por shannon.
 
 Un one time pad (o relleno de una sola vez). Un cifrado inviolable
 
-- Elegir un **randon bit string** como clave
+- Elegir un **random bit string** como clave
 - Usar bit XOR para encriptar y desencriptar
 - Inmune a todos los ataques actuales y futuros sin importar cuanto potencia
   computacional tenga el intruso. Resultado de shannon
@@ -248,7 +248,7 @@ conocer ambos, y si bien se la pueden llevar uno a otro es poco practico.
 
 ## Modelo de encriptacion
 
-![](img/crypto-sim.png)
+![](img/crypto-model.png)
 
 ## Criptografia asimetrica
 
@@ -324,7 +324,7 @@ m = (m^e mod n)^d mod n
 - Reciprocidad: Aplicar clave publica seguido por clave privada es lo mismo que
   al reves.
 
-  {completar con lo de las diapos}
+  ![](img/reciprocidad.png)
 
 ### Firma digital con criptografia asimetrica
 
